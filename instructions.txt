@@ -10,7 +10,10 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 
 >> update pip
-sudo -H pip3 install —upgrade pip  >> install flask-ask pip3 install flask-ask
+sudo -H pip3 install —upgrade pip
+
+  >> install flask-ask
+ pip3 install flask-ask
 
 >> install grok
 https://ngrok.com/download 
@@ -24,7 +27,9 @@ Setting up lirc
 >> Add the following to the /boot/config.txt
 lirc_rpi gpio_in_pin=23 gpio_out_pin=22
 
->> Edit the file /etc/lirc/lirc_options.conf Change:
+>> Edit the file /etc/lirc/lirc_options.conf 
+
+Change:
 
 from:
 driver  = devinput
@@ -71,7 +76,7 @@ $ irsend SEND_ONCE <device-name> KEY_VOLUMEUP
 
 >> Testing the IR circuit and control on your Raspberry Pi
 Build the Circuit for the Project and connect it to the Raspberry Pi
-Copy the Python Code for the project the Raspberry Pi
+Copy the Python Code for the project to the Raspberry Pi
 Run the test program to ensure that ir signals to the TV works
 
 e.g.
@@ -82,7 +87,8 @@ python3 test.py channel 25
 
 Tweak as necessary to ensure the functions work
 Change any corresponding commands as needed in the Skill Program   >> Start the python skill handler and ngrok
-Get the https endpoint
+
+>> Get the https endpoint
 python3 my-tv.py
 ./ngrok http 5000
 
