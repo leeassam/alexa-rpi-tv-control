@@ -1,0 +1,95 @@
+>>Setup for the Alexa Skill to Control your TV with Raspberry Pi Project<<
+Created by: Lee Assam
+www.powerlearningacademy.com
+Last Modified: 2018-07-20
+
+Getting software installed on your RPi
+
+>> update your system
+sudo apt-get update
+sudo apt-get dist-upgrade
+
+>> update pip
+sudo -H pip3 install —upgrade pip  >> install flask-ask pip3 install flask-ask
+
+>> install grok
+https://ngrok.com/download 
+Download and unzip ngrok
+
+>> install lirc
+sudo apt-get install lirc
+
+Setting up lirc
+
+>> Add the following to the /boot/config.txt
+lirc_rpi gpio_in_pin=23 gpio_out_pin=22
+
+>> Edit the file /etc/lirc/lirc_options.conf Change:
+
+from:
+driver  = devinput
+device  = auto
+
+to:
+driver  = default
+device  = /dev/lirc0
+
+Save and Reboot
+
+lirc operation
+>> Start/Stop the licrd service
+sudo /etc/init.d/lircd stop
+sudo /etc/init.d/lircd start
+
+>> Check status to determine if lirc is running
+sudo /etc/init.d/lircd status
+
+>> To test if lirc driver is working  -- First wire up your circuit and connect to the Raspberry Pi 
+sudo /etc/init.d/lircd stop
+
+mode2 -d /dev/lirc0
+<press a key in remote and you should see multple lines like below>
+pulse 560
+space 1706
+pulse 535
+
+>> Recording a custom remote/registering a remote device
+sudo /etc/init.d/lircd stop
+sudo irrecord -d /dev/lirc0 ~/lircd.conf
+# follow the instructions prompted by the above command carefully
+# at the end a ~/device-name.lircd.conf file will be generated
+
+>> Backup the original lircd.conf
+sudo mv /etc/lirc/lircd.conf /etc/lirc/lircd_original.conf
+sudo cp ~/device-name.lircd.conf /etc/lirc/lircd.conf
+sudo /etc/init.d/lircd start
+
+# you can test if the recorded remote works by
+$ irsend SEND_ONCE <device-name> KEY_POWER
+$ irsend SEND_ONCE <device-name> KEY_VOLUMEUP
+
+
+>> Testing the IR circuit and control on your Raspberry Pi
+Build the Circuit for the Project and connect it to the Raspberry Pi
+Copy the Python Code for the project the Raspberry Pi
+Run the test program to ensure that ir signals to the TV works
+
+e.g.
+
+python3 test.py power on
+python3 test.py volume increase
+python3 test.py channel 25
+
+Tweak as necessary to ensure the functions work
+Change any corresponding commands as needed in the Skill Program   >> Start the python skill handler and ngrok
+Get the https endpoint
+python3 my-tv.py
+./ngrok http 5000
+
+>> Setup the Alexa Skill
+Log into the Amazon Developer Portal
+Create the MyTV Skill
+Upload the JSON spec for the skill
+Update the endpoint
+Test the Skill
+

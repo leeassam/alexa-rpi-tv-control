@@ -1,0 +1,265 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "my tv",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "PowerIntent",
+                    "slots": [
+                        {
+                            "name": "onOffCommand",
+                            "type": "onOff",
+                            "samples": [
+                                "{onOffCommand}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "switch {onOffCommand}",
+                        "power {onOffCommand}",
+                        "turn {onOffCommand}"
+                    ]
+                },
+                {
+                    "name": "VolumeIntent",
+                    "slots": [
+                        {
+                            "name": "volumeCommand",
+                            "type": "volumeLevel"
+                        }
+                    ],
+                    "samples": [
+                        "{volumeCommand} volume",
+                        "{volumeCommand}",
+                        "adjust the volume",
+                        "change the volume",
+                        "{volumeCommand} the volume",
+                        "change volume",
+                        "adjust volume"
+                    ]
+                },
+                {
+                    "name": "GotoChannelIntent",
+                    "slots": [
+                        {
+                            "name": "channelNumber",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{channelNumber}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "{channelNumber}",
+                        "switch to a channel",
+                        "go to a channel",
+                        "I want to look at channel {channelNumber}",
+                        "I want to see channel {channelNumber}",
+                        "turn to channel {channelNumber}",
+                        "switch to channel {channelNumber}",
+                        "go to channel {channelNumber}"
+                    ]
+                },
+                {
+                    "name": "ChannelSurfIntent",
+                    "slots": [
+                        {
+                            "name": "direction",
+                            "type": "channelSurfDirection",
+                            "samples": [
+                                "{direction}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "{direction}",
+                        "move channel {direction}",
+                        "channel surf {direction}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "onOff",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "off"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "on"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "volumeLevel",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "unmute"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mute"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "decrease"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "increase"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "channelSurfDirection",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "stop"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "down"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "up"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "PowerIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "onOffCommand",
+                            "type": "onOff",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1155959161884.1136752486579"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "VolumeIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "volumeCommand",
+                            "type": "volumeLevel",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "GotoChannelIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "channelNumber",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.272408904645.235427451175"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ChannelSurfIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "direction",
+                            "type": "channelSurfDirection",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.643016976921.572268809451"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1155959161884.1136752486579",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Do you want to turn your tv on or off"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.192159057276.1171043661990",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Do you want to increase, decrease or mute the volume"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.272408904645.235427451175",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What channel number would you like"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.643016976921.572268809451",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Do you want to navigate up or down to the next channel"
+                    }
+                ]
+            }
+        ]
+    }
+}

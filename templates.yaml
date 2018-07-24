@@ -1,0 +1,23 @@
+power_on: Turning your tv on
+
+power_off: Turning your tv off
+
+volume_increase: Increasing volume
+
+volume_decrease: Decreasing volume
+
+volume_mute: Mute volume
+
+volume_unmute: Unmute volume
+
+change_channel: Channel changed to {{ channel }}
+
+change_channel_up: Channel up
+
+change_channel_down: Channel down
+
+stopping : Stopping
+
+finished : Finished
+
+channel_done : Say stop when you have reached a channel you like
