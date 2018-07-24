@@ -16,7 +16,7 @@ sudo -H pip3 install —upgrade pip
  pip3 install flask-ask
 
 >> install grok
-https://ngrok.com/download 
+https://ngrok.com/download
 Download and unzip ngrok
 
 >> install lirc
@@ -25,7 +25,7 @@ sudo apt-get install lirc
 Setting up lirc
 
 >> Add the following to the /boot/config.txt
-lirc_rpi gpio_in_pin=23 gpio_out_pin=22
+dtoverlay=lirc-rpi,gpio_in_pin=18,gpio_out_pin=17
 
 >> Edit the file /etc/lirc/lirc_options.conf 
 
@@ -49,7 +49,7 @@ sudo /etc/init.d/lircd start
 >> Check status to determine if lirc is running
 sudo /etc/init.d/lircd status
 
->> To test if lirc driver is working  -- First wire up your circuit and connect to the Raspberry Pi 
+>> To test if lirc driver is working  -- First wire up your circuit and connect to the Raspberry Pi
 sudo /etc/init.d/lircd stop
 
 mode2 -d /dev/lirc0
@@ -98,4 +98,3 @@ Create the MyTV Skill
 Upload the JSON spec for the skill
 Update the endpoint
 Test the Skill
-
