@@ -1,6 +1,6 @@
 '''
 Alexa Custom Skill to enable voice control of your tv using a Raspberry Pi
-    - Uses ask-flask and irsend on raspberry pi
+    - Uses flask-ask and irsend on raspberry pi
 
 Usage:
 Alexa, tell my tv to turn on/off
