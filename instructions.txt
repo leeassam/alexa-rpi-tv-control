@@ -1,7 +1,7 @@
 >>Setup for the Alexa Skill to Control your TV with Raspberry Pi Project<<
 Created by: Lee Assam
 www.powerlearningacademy.com
-Last Modified: 2018-07-20
+Last Modified: 2018-09-07
 
 Getting software installed on your RPi
 
@@ -10,9 +10,7 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 
 >> update pip
-sudo -H pip3 install —upgrade pip
-
-  >> install flask-ask
+sudo -H pip3 install —upgrade pip  >> install flask-ask
  pip3 install flask-ask
 
 >> install grok
