@@ -34,7 +34,7 @@ device = "sony"
 
 @ask.launch
 def start_skill():
-    welcome_message = 'Welcome to the voice control app for your tv, you can say turn on, turn off, increase volume, or switch to channel 25'
+    welcome_message = render_template('welcome')
     return question(welcome_message)
 
 @ask.intent('AMAZON.HelpIntent')
@@ -43,7 +43,8 @@ def help():
 
 @ask.intent('AMAZON.FallbackIntent')
 def fallback():
-    return statement("Sorry. I did not understand your tv command")
+    fallback_message = render_template('fallback_message')
+    return statement(fallback_message)
 
 @ask.session_ended
 def session_ended():
@@ -59,7 +60,7 @@ def power(onOffCommand):
 #volumeCommand : increase | decrease | mute |unmute
 @ask.intent('VolumeIntent')
 def volume(volumeCommand):
-    clarifyText = "Do you want to increase, decrease or mute the volume"
+    clarifyText = render_template('clarify_volume_command')
     #volume adjustment not specified
     if volumeCommand is None:
         return question(clarifyText)
@@ -83,7 +84,8 @@ def volume(volumeCommand):
 @ask.intent('GotoChannelIntent', convert={'channelNumber': int})
 def gotoChannel(channelNumber):
     if channelNumber is None:
-        return question ("Which channel number would you like to see")
+        channel_question = render_template('channel_question')
+        return question (channel_question)
     else:
         channelNums = list(str(channelNumber))
         #loop over each number and send the ir signal for each number key
