@@ -75,6 +75,11 @@ $ irsend SEND_ONCE <device-name> KEY_VOLUMEUP
 >> Testing the IR circuit and control on your Raspberry Pi
 Build the Circuit for the Project and connect it to the Raspberry Pi
 Copy the Python Code for the project to the Raspberry Pi
+
+You will neeed to change the device variable in the test.py code to match what you named your configuration file
+#Specify the name of your TV that was configured in the lircd.conf file
+device = "sony"
+
 Run the test program to ensure that ir signals to the TV works
 
 e.g.
@@ -95,4 +100,10 @@ Log into the Amazon Developer Portal
 Create the MyTV Skill
 Upload the JSON spec for the skill
 Update the endpoint
+
+
+You will neeed to change the device variable in the my-tv.py code to match what you named your configuration file
+#Specify the name of your TV that was configured in the lircd.conf file
+device = "sony"
+
 Test the Skill
