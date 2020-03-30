@@ -10,10 +10,10 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 
 >> update pip
-sudo -H pip3 install —upgrade pip
+sudo -H pip3 install --upgrade pip
 
 >> install flask-ask
-pip3 install flask-ask
+sudo pip3 install flask-ask
 
 >> install grok
 https://ngrok.com/download
